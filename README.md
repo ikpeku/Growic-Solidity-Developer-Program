@@ -25,7 +25,7 @@ A  Solidity Developer Program eth-miami
 * function register(address studentID) then add all the rest details of the student from your struct to the argument of this function
 * function getStudentDetails(address studentID)
 
-[Task one Solution]()).
+[Task one Solution](https://github.com/ikpeku/Growic-Solidity-Developer-Program/blob/main/Task1%20(primitive%20data%20type)/PrimitiveDataType.sol)).
 
 #### **Review**
 - This task has introduce me to a lot of data types and modifier
