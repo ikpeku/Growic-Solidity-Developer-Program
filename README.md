@@ -27,6 +27,23 @@ A  Solidity Developer Program eth-miami
 
 ## [Task one Solution](https://github.com/ikpeku/Growic-Solidity-Developer-Program/blob/main/Task1%20(primitive%20data%20type)/PrimitiveDataType.sol).
 
-#### **Review**
+#### **Review Task 1**
 - This task has introduce me to a lot of data types and modifier
 - I learned some optimizing e.g i pass in an array of Student then loop through to verify each which also save gas to by 50%.
+
+
+## Task two
+
+> Perform the task and share the link to your github in the field below.
+
+#### **Instructions**
+> Create a smart contract that saves user balance. The contract should have the functions:
+
+* deposit (uint256 amount) this function accepts one argument and it saves the amount a user is depositing into a mapping,
+* checkBalance() this function searches for the user balance inside the balance mapping and returns the balance of whoever is calling the contract.
+
+## [Task two Solution](https://github.com/ikpeku/Growic-Solidity-Developer-Program/blob/main/Task1%20(primitive%20data%20type)/PrimitiveDataType.sol).
+
+#### **Review Task 2**
+- uping my knowledge of mapping 
+- learned how to customize error and also reduce gas

@@ -8,11 +8,11 @@ import "hardhat/console.sol";
 
 
 /**
- * @title YourContract
+ * @title PrimitiveDataType
  * @dev Set student data, Get student data & change owner
  */
 
-contract YourContract {
+contract PrimitiveDataType {
       address private owner;
 
     address[] registeredStudentList;
