@@ -42,7 +42,7 @@ A  Solidity Developer Program eth-miami
 * deposit (uint256 amount) this function accepts one argument and it saves the amount a user is depositing into a mapping,
 * checkBalance() this function searches for the user balance inside the balance mapping and returns the balance of whoever is calling the contract.
 
-## [Task two Solution](https://github.com/ikpeku/Growic-Solidity-Developer-Program/blob/main/Task1%20(primitive%20data%20type)/PrimitiveDataType.sol).
+## [Task two Solution](https://github.com/ikpeku/Growic-Solidity-Developer-Program/blob/main/Task2%20(mappings)/Mappings.sol).
 
 #### **Review Task 2**
 - uping my knowledge of mapping 
