@@ -51,11 +51,8 @@ contract Struct {
      * @dev Calls checkBalance() function to take the address and display it value
      * @return balance return the value associated to the address
      */
-    function checkBalance(address _addr) public view returns (uint) {
-        if(msg.sender != _addr || owner != _addr){
-            revert HandleError("only owner or sender");
-        }
-        return balance[_addr];
+    function checkBalance() public view returns (uint) {
+        return balance[msg.sender];
     }
 
 

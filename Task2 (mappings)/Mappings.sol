@@ -52,10 +52,7 @@ contract Mappings {
      * @return balance return the value associated to the address
      */
     function checkBalance(address _addr) public view returns (uint) {
-        if(msg.sender != _addr || owner != _addr){
-            revert HandleError("only owner or sender");
-        }
-        return balance[_addr];
+        return balance[msg.sender];
     }
 
     // to support receiving ETH by default

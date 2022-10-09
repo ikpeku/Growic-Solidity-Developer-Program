@@ -8,11 +8,11 @@ import "hardhat/console.sol";
 
 
 /**
- * @title Modifiers
+ * @title Events
  * @dev Store & retrieve value
  */
 
-contract Modifiers {
+contract Events {
     // contract owner
     address payable owner;
     
@@ -20,10 +20,12 @@ contract Modifiers {
      uint256 private Fee = 20;
      uint256 public contractBalance;
 
-    // event for EVM logging(logging old owner and new owner)
-    event OwnerSet(address indexed oldOwner, address indexed newOwner);
-    event Valuesend(address indexed _from, address indexed _to, uint _value);
-    event Deposit(address indexed _from, uint _value);
+    event OwnerSet(address indexed oldOwner, address indexed newOwner);   // event for changing contrast ownership(logging old owner and new owner)
+    event Valuesend(address indexed _from, address indexed _to, uint _value);   // event for transaction from sender to receive and the value
+
+
+    event FundsDeposited(address user, uint256 amount); // event for logging depositors
+    event ProfileUpdated(address user); // event for logging user update
 
     error HandleError(string ErrorMessage); // Error handling
     error AmountToSmall(string amount); // Error handling
@@ -38,17 +40,19 @@ contract Modifiers {
         emit OwnerSet(address(0), owner);
     }
 
-    // validations
+    // owner only validations 
     modifier ownerOnly() {
         require(msg.sender == owner, "not owner");
         _;
     }
 
+   // valid depositor validations 
     modifier onlyDepositor() {
         require(validUser[msg.sender], "deposit to continue");
         _;
     }
 
+    // minimum deposit validations 
     modifier value(uint256 _amount) {
         if(_amount < Fee) {
             revert AmountToSmall("Amount too small");
@@ -83,7 +87,7 @@ contract Modifiers {
         balance[msg.sender] = amount;
         validUser[msg.sender] = true;
         contractBalance += amount;
-        emit Deposit(msg.sender, amount);
+        emit FundsDeposited(msg.sender, amount);
     }
 
    /** 
@@ -94,7 +98,7 @@ contract Modifiers {
         // initial amount of sender = 0 
         balance[msg.sender] += amount;
         contractBalance += amount;
-        emit Deposit(msg.sender, amount);
+        emit FundsDeposited(msg.sender, amount);
     }
 
 
@@ -106,10 +110,12 @@ contract Modifiers {
         return balance[msg.sender];
     }
 
-   /**
+   
+    /**
      * @dev Calls withdraw() function to withdraw the cotract fund
      */
     function withdraw () public ownerOnly {}
+
 
     /** 
      * @dev Calls setUserDetails() function to set the sender address to value
@@ -119,6 +125,7 @@ contract Modifiers {
         User memory _user = User(name, age);
         user.push(_user);
         userDetail[msg.sender] = _user;
+        emit ProfileUpdated(msg.sender);
     }
 
 
@@ -126,7 +133,6 @@ contract Modifiers {
      * @dev Calls getUserDetail() function to take the address and display it value
      * @return currentUser returns the value associated to the address
      */
-
     function getUserDetail() public view returns(User memory currentUser) {
         currentUser = userDetail[msg.sender];
     }
