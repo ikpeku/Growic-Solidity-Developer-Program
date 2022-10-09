@@ -51,7 +51,27 @@ A  Solidity Developer Program eth-miami
 - learned how to customize error and also reduce gas
 
 
-## Task three
+## Task four
+
+#### **Description**
+
+> You must complete the tasks from the 'Mapping' and 'Structs' topics before you begin this assignment.
+Perform the task and share the link to your github in the field below.
+
+#### **Instructions**
+
+> This task extends the functionality of the previous contract by allowing users to save their additional info into the smart contract as a KYC measure.
+
+> The contract should now contain the following:
+    * setUserDetails(string calldata name, uint256 age) this function accepts 2 arguments that represent the details of the user calling the smart contract and it saves them into a defined struct,
+    * getUserDetail() this function retrieves and returns the details saved for the user calling the contract.
+
+
+## [Task Three Solution](https://github.com/ikpeku/Growic-Solidity-Developer-Program/blob/main/Task3(Struct)/Struct.sol).
+
+
+
+## Task four
 
 #### **Description**
 
@@ -74,4 +94,4 @@ Perform the task and share the link to your github in the field below.
 Add it to the addFund function
     > Hint: addFund(uint256 _amount)..........
 
-## [Task Three Solution](https://github.com/ikpeku/Growic-Solidity-Developer-Program/blob/main/Task3(Struct)/Struct.sol).
+## [Task Four Solution](https://github.com/ikpeku/Growic-Solidity-Developer-Program/blob/main/Task3(Struct)/Struct.sol).
