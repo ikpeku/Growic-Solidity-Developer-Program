@@ -8,11 +8,11 @@ import "hardhat/console.sol";
 
 
 /**
- * @title Mappings
+ * @title Struct
  * @dev Store & retrieve value
  */
 
-contract Mappings {
+contract Struct {
     address payable owner;
 
     // event for EVM logging(logging old owner and new owner)
@@ -57,6 +57,39 @@ contract Mappings {
         }
         return balance[_addr];
     }
+
+
+    // To key details of a user
+    struct User {
+        string name;
+        uint256 age;
+    }
+
+    User[] user;
+    // value per to the user
+    mapping (address => User) userDetail;
+
+    /** 
+     * @dev Calls setUserDetails() function to set the sender address to value
+     * @param name and age value are per to the address
+     */
+    function setUserDetails(string calldata name, uint256 age) public {
+        User memory _user = User(name, age);
+        user.push(_user);
+        userDetail[msg.sender] = _user;
+    }
+
+
+     /**
+     * @dev Calls getUserDetail() function to take the address and display it value
+     * @return currentUser returns the value associated to the address
+     */
+
+    function getUserDetail() public view returns(User memory currentUser) {
+        currentUser = userDetail[msg.sender];
+    }
+
+
 
     // to support receiving ETH by default
     receive() external payable {
